@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="993fe9e1-f633-469e-a01f-ba97fe757190" ChangeDateTime="03/27/2017 14:21:09">
+    <Property Name="ElementName" Value="[dbo].[tb_aquatic_resource].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tb_aquatic_resource]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id_aquatic_resource" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="878f1b3b-ba7a-4c7b-8001-b5673ae50b0d" ChangeDateTime="03/28/2017 07:43:32">
+    <Property Name="ElementName" Value="[dbo].[tb_unit].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tb_unit]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id_unit" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e1435b11-8d6e-4cb7-a916-dbf78fa6a0a8" ChangeDateTime="03/28/2017 08:10:42">
+    <Property Name="ElementName" Value="[dbo].[tb_document].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tb_document]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id_document" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3fdf230b-49c2-4bed-a53f-7b4be335ce84" ChangeDateTime="03/28/2017 10:14:32">
+    <Property Name="ElementName" Value="[dbo].[tb_ar_hierarchy].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tb_ar_hierarchy]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id_aquatic_resource" />
+  </Operation>
+</Operations>
