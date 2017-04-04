@@ -28,4 +28,25 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="id_aquatic_resource" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="65665e08-0261-408b-9969-c84d7a6d82f1" ChangeDateTime="04/03/2017 06:44:00">
+    <Property Name="ElementName" Value="[dbo].[tb_portion_calc].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tb_portion_calc]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id_portion_calc" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="abbe1ff4-b22e-4496-9478-60a12c698682" ChangeDateTime="04/03/2017 06:53:56">
+    <Property Name="ElementName" Value="[dbo].[tb_user_calc_request].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tb_user_calc_request]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[date_request]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c76fd708-00a3-4a6d-853d-b2f6d6d4ac08" ChangeDateTime="04/03/2017 06:54:10">
+    <Property Name="ElementName" Value="[dbo].[tb_user_calc_request].[[date_request]]]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[tb_user_calc_request]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="date_request" />
+  </Operation>
 </Operations>

@@ -61,42 +61,66 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="tables" />
-    <Folder Include="indexes" />
     <Folder Include="txt" />
-    <Folder Include="tables\catalog" />
-    <Folder Include="tables\archieve_tables" />
-    <Folder Include="service" />
-    <Folder Include="triggers" />
+    <Folder Include="MsSqlServer" />
+    <Folder Include="MsSqlServer\tables" />
+    <Folder Include="MsSqlServer\tables\archieve_tables" />
+    <Folder Include="MsSqlServer\tables\catalog" />
+    <Folder Include="MsSqlServer\triggers" />
+    <Folder Include="MsSqlServer\indexes" />
+    <Folder Include="PostgreSQL" />
+    <Folder Include="MsSqlServer\tables\service" />
+    <Folder Include="PostgreSQL\tables" />
+    <Folder Include="PostgreSQL\tables\audit" />
+    <Folder Include="PostgreSQL\tables\catalog" />
+    <Folder Include="PostgreSQL\tables\service" />
+    <Folder Include="PostgreSQL\triggers" />
+    <Folder Include="PostgreSQL\stored_procedures" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="tables\archieve_tables\tb_archive_user_ar.sql" />
-    <Build Include="tables\tb_total_allowable_catch.sql" />
-    <Build Include="tables\tb_document.sql" />
-    <Build Include="tables\tb_user_calc_request.sql" />
-    <Build Include="tables\tb_user_calc_portion.sql" />
-    <Build Include="tables\tb_portion_calc.sql" />
-    <Build Include="tables\catalog\tb_aquatic_resource.sql" />
-    <Build Include="tables\catalog\tb_unit.sql" />
-    <Build Include="tables\catalog\tb_ar_hierarchy.sql" />
-    <Build Include="tables\catalog\tb_region_hierachy.sql" />
-    <Build Include="tables\catalog\tb_subject_hierarchy.sql" />
-    <Build Include="service\tb_dbrecord_operation.sql" />
-    <Build Include="tables\tb_user_ar.sql" />
-    <Build Include="triggers\trigger_user_ar_insert.sql" />
+    <Build Include="MsSqlServer\tables\archieve_tables\tb_archive_user_ar.sql" />
+    <Build Include="MsSqlServer\tables\catalog\tb_aquatic_resource.sql" />
+    <Build Include="MsSqlServer\tables\catalog\tb_ar_hierarchy.sql" />
+    <Build Include="MsSqlServer\tables\catalog\tb_basin.sql" />
+    <Build Include="MsSqlServer\tables\catalog\tb_document_type.sql" />
+    <Build Include="MsSqlServer\tables\catalog\tb_organization_approval.sql" />
+    <Build Include="MsSqlServer\tables\catalog\tb_quota_type.sql" />
+    <Build Include="MsSqlServer\tables\catalog\tb_region.sql" />
+    <Build Include="MsSqlServer\tables\catalog\tb_region_hierachy.sql" />
+    <Build Include="MsSqlServer\tables\catalog\tb_subject.sql" />
+    <Build Include="MsSqlServer\tables\catalog\tb_subject_hierarchy.sql" />
+    <Build Include="MsSqlServer\tables\catalog\tb_unit.sql" />
+    <Build Include="MsSqlServer\tables\tb_document.sql" />
+    <Build Include="MsSqlServer\tables\tb_portion_calc.sql" />
+    <Build Include="MsSqlServer\tables\tb_total_allowable_catch.sql" />
+    <Build Include="MsSqlServer\tables\tb_user_ar.sql" />
+    <Build Include="MsSqlServer\tables\tb_user_calc_request.sql" />
+    <Build Include="MsSqlServer\triggers\trigger_user_ar_insert.sql" />
+    <Build Include="MsSqlServer\tables\service\tb_dbrecord_operation.sql" />
+    <Build Include="PostgreSQL\tables\catalog\tb_aquatic_resource.sql" />
+    <Build Include="PostgreSQL\tables\catalog\tb_ar_hierarchy.sql" />
+    <Build Include="PostgreSQL\tables\catalog\tb_basin.sql" />
+    <Build Include="PostgreSQL\tables\catalog\tb_document_type.sql" />
+    <Build Include="PostgreSQL\tables\catalog\tb_organization_approval.sql" />
+    <Build Include="PostgreSQL\tables\catalog\tb_quota_type.sql" />
+    <Build Include="PostgreSQL\tables\catalog\tb_region.sql" />
+    <Build Include="PostgreSQL\tables\catalog\tb_region_hierachy.sql" />
+    <Build Include="PostgreSQL\tables\catalog\tb_subject.sql" />
+    <Build Include="PostgreSQL\tables\catalog\tb_subject_hierarchy.sql" />
+    <Build Include="PostgreSQL\tables\catalog\tb_unit.sql" />
+    <Build Include="PostgreSQL\tables\service\tb_dbrecord_operation.sql" />
+    <Build Include="PostgreSQL\tables\tb_document.sql" />
+    <Build Include="PostgreSQL\tables\tb_portion_calc.sql" />
+    <Build Include="PostgreSQL\tables\tb_total_allowable_catch.sql" />
+    <Build Include="PostgreSQL\tables\tb_user_ar.sql" />
+    <Build Include="PostgreSQL\tables\tb_user_calc_request.sql" />
+    <Build Include="PostgreSQL\tables\audit\tb_user_ar_audit.sql" />
+    <Build Include="PostgreSQL\triggers\trigger_user_ar_IUD.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="db_quotas_2018.refactorlog" />
   </ItemGroup>
   <ItemGroup>
     <None Include="txt\description.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Build Include="tables\catalog\tb_basin.sql" />
-    <Build Include="tables\catalog\tb_document_type.sql" />
-    <Build Include="tables\catalog\tb_organization_approval.sql" />
-    <Build Include="tables\catalog\tb_quota_type.sql" />
-    <Build Include="tables\catalog\tb_region.sql" />
-    <Build Include="tables\catalog\tb_subject.sql" />
   </ItemGroup>
 </Project>

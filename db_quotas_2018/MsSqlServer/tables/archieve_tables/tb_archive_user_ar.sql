@@ -1,17 +1,18 @@
 ﻿/*
 --=============================================================================
 -- db_quotas_2018
--- [dbo].[tb_user_ar] - таблица 'пользователь ВБР'
+-- [dbo].[tb_archive_user_ar] - таблица 'архив данных пользователя ВБР'
 -- Автор: Иванченко М.В.
--- Дата начала разработки:  27-03-2018
--- Дата обновления:         30-03-2018
+-- Дата начала разработки:  29-03-2018
+-- Дата обновления:         03-04-2018
 -- Первый релиз:            0.0.0.0
 -- Текущий релиз:           0.0.0.0
 --=============================================================================
 */
-CREATE TABLE [dbo].[tb_user_ar]
+CREATE TABLE [dbo].[tb_archive_user_ar]
 (
-	[id_user_ar] INT NOT NULL PRIMARY KEY,						--Идентификатор пользователя ВБР
+	[date_update] DATETIME NOT NULL DEFAULT GETDATE(),			--Дата/время вставки записи в таблицу
+	[id_user_ar] INT NOT NULL,									--Идентификатор пользователя ВБР
     [id_user_ar_fms] INT NOT NULL DEFAULT 0,					--Код пользователя ВБР/владельца доли в ОСМ(FMS - Fishery Monitoring System)
 	[id_dbrecord_operation] TINYINT NOT NULL DEFAULT 1,			--Код операции над записью БД
 	[legal_entity] BIT NOT NULL DEFAULT 1,						--Признак юр.лицо/инд.предприниматель
@@ -36,7 +37,8 @@ CREATE TABLE [dbo].[tb_user_ar]
     [OKVED] NVARCHAR(24) NOT NULL DEFAULT '',					--ОКВЭД
     [KOPF] NVARCHAR(2) NOT NULL DEFAULT '',						--ОКОПФ
     [KFS] NVARCHAR(2) NOT NULL DEFAULT '',						--ОКФС
-    [note] NVARCHAR(255) NOT NULL DEFAULT ''					--Примечание
+    [note] NVARCHAR(255) NOT NULL DEFAULT '',					--Примечание
+	[db_responsible] NVARCHAR(32) NOT NULL DEFAULT SYSTEM_USER	--Ответственный за корректировку записи
+, 
+    CONSTRAINT [PK_tb_archive_user_ar] PRIMARY KEY ([date_update], [id_user_ar])
 );
-
-
