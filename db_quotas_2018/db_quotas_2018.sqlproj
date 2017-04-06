@@ -76,6 +76,8 @@
     <Folder Include="PostgreSQL\tables\service" />
     <Folder Include="PostgreSQL\triggers" />
     <Folder Include="PostgreSQL\stored_procedures" />
+    <Folder Include="ui" />
+    <Folder Include="MsSqlServer\migrate" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="MsSqlServer\tables\archieve_tables\tb_archive_user_ar.sql" />
@@ -117,10 +119,12 @@
     <Build Include="PostgreSQL\tables\audit\tb_user_ar_audit.sql" />
     <Build Include="PostgreSQL\triggers\trigger_user_ar_IUD.sql" />
     <Build Include="PostgreSQL\stored_procedures\sp_user_ar.sql" />
+    <Build Include="MsSqlServer\migrate\vw_declarant_full.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="db_quotas_2018.refactorlog" />
     <None Include="txt\db_objects_lifecycle.rtf" />
+    <None Include="ui\user_ar_request_form.gliffy" />
   </ItemGroup>
   <ItemGroup>
     <None Include="txt\description.txt" />
