@@ -1,0 +1,42 @@
+CREATE TABLE q09.portion_limits_transfer
+(
+	id_index int NOT NULL,
+	id_history int NOT NULL,
+	portion_limit_flag boolean NOT NULL,
+	id_declarant_from int NOT NULL,
+	id_declarant_to int NOT NULL,
+	id_basin int NOT NULL,
+	id_regime int NOT NULL,
+	id_region int NOT NULL,
+	id_fish int NOT NULL,
+	id_subject_from int NOT NULL,
+	id_subject int NOT NULL,
+	id_unit int NOT NULL,
+	portion_limit decimal(28, 12) NULL,
+	date_ date NULL,
+	document varchar(50) NULL,
+	document_date date NULL,
+	transfer_number varchar(60) NOT NULL,
+	transfer_date date NOT NULL,
+	transfer_reason varchar(150) NULL,
+	declarant_from varchar(250) NULL,
+	declarant_from_inn varchar(20) NULL,
+	declarant_to varchar(250) NULL,
+	declarant_to_inn varchar(20) NULL,
+	id_history_from int NULL,
+	id_history_to int NULL,
+	report_organization varchar(150) NULL,
+	report_number varchar(60) NULL,
+	report_date date NULL,
+	report_document varchar(50) NULL,
+	contract_organization varchar(150) NULL,
+	contract_number varchar(60) NULL,
+	contract_date date NULL,
+	note varchar(255) NULL,
+	responsible varchar(30) NULL,
+	timestamp_ timestamp NULL,
+    CONSTRAINT PK_portion_limits_transfer PRIMARY KEY
+    (
+        id_index
+    )
+);

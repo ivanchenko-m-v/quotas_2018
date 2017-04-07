@@ -1,0 +1,22 @@
+USE [limits_2009c]
+GO
+
+/****** Object:  Table [dbo].[unit]    Script Date: 07.04.2017 13:15:32 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[unit](
+	[id_unit] [int] NOT NULL,
+	[unit] [varchar](15) NOT NULL,
+ CONSTRAINT [PK_unit] PRIMARY KEY CLUSTERED 
+(
+	[id_unit] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
