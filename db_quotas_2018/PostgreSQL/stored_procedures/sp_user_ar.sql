@@ -213,7 +213,7 @@ select sp_user_ar(
 */
 CREATE OR REPLACE FUNCTION sp_user_ar_reorganize( 
                                         p_action VARCHAR(10), 
-                                        p_id_user_ar_key INT,           -- 0 для action='NEW', <> 0 для action='CORRECT'
+                                        p_id_user_ar_key INT,           -- <> 0 для action='REORGANIZE'
                                         p_id_user_ar_fms INT,           -- Код пользователя ВБР/владельца доли в ОСМ
                                         p_legal_entity BOOLEAN,         -- Признак юр.лицо/инд.предприниматель
                                         p_user_ar VARCHAR(256),			-- Название пользователя ВБР
