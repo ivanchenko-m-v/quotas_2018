@@ -80,6 +80,8 @@
     <Folder Include="MsSqlServer\migrate" />
     <Folder Include="MsSqlServer\_old_base" />
     <Folder Include="PostgreSQL\q09" />
+    <Folder Include="PostgreSQL\cnn" />
+    <Folder Include="PostgreSQL\cnn\stored_procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="MsSqlServer\tables\archieve_tables\tb_archive_user_ar.sql" />
@@ -222,11 +224,16 @@
     <Build Include="PostgreSQL\q09\z__limits_catch_conversion_catch.sql" />
     <Build Include="PostgreSQL\q09\z__limits_catch_conversion_limits.sql" />
     <Build Include="PostgreSQL\q09\z__limits_catch_conversion_portion.sql" />
+    <Build Include="PostgreSQL\cnn\tb_cnn.sql" />
+    <Build Include="PostgreSQL\stored_procedures\sp_aquatic_resource.sql" />
+    <Build Include="PostgreSQL\cnn\stored_procedures\sp_cnn_client.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="db_quotas_2018.refactorlog" />
     <None Include="txt\db_objects_lifecycle.rtf" />
     <None Include="ui\user_ar_request_form.gliffy" />
+    <None Include="ui\login_form.gliffy" />
+    <None Include="txt\orders_module.docx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="txt\description.txt" />
