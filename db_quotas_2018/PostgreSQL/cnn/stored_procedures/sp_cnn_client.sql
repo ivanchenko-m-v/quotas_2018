@@ -5,7 +5,7 @@
 -- PostgreSQL
 -- Автор: Иванченко М.В.
 -- Дата начала разработки:  19-04-2017
--- Дата обновления:         19-04-2017
+-- Дата обновления:         20-04-2017
 -- Первый релиз:            0.0.0.0
 -- Текущий релиз:           0.0.0.0
 -- =============================================================================
@@ -14,18 +14,40 @@ CREATE OR REPLACE FUNCTION cnn.sp_cnn_client(
 									p_lgn VARCHAR(16),
 									p_hsh VARCHAR(32)
 											)
-RETURNS TABLE (ITEM TEXT)
+RETURNS TEXT
 AS
 $$
+	DECLARE retval TEXT;
 BEGIN
 	IF NOT EXISTS( SELECT client FROM cnn.tb_cnn WHERE ((lgn=p_lgn)AND(hsh=p_hsh)) ) THEN
         	RAISE EXCEPTION 'LOGIN OR PASSWORD NOT CORRECT FOR LOGIN=''%'' ', p_lgn;
     END IF;
     -- form return value
-    RETURN QUERY
-        SELECT concat(cnn.tb_cnn.client,'###',cnn.tb_cnn.input) AS cnn
-            FROM cnn.tb_cnn 
-            WHERE ((lgn=p_lgn)AND(hsh=p_hsh));
+    SELECT concat(cnn.tb_cnn.client,'###',cnn.tb_cnn.input) AS cnn_text
+    	INTO retval
+        FROM cnn.tb_cnn WHERE ((lgn=p_lgn)AND(hsh=p_hsh));
+    RETURN retval;
+END;
+$$ 
+LANGUAGE plpgsql;
+/**
+*			TEST
+*/
+DROP FUNCTION IF EXISTS cnn.sp_cnn_client( );
+CREATE OR REPLACE FUNCTION cnn.sp_cnn_client( )
+RETURNS TEXT
+AS
+$$
+	DECLARE retval TEXT;
+BEGIN
+	IF NOT EXISTS( SELECT client FROM cnn.tb_cnn ) THEN
+        	RAISE EXCEPTION 'LOGIN OR PASSWORD NOT CORRECT';
+    END IF;
+    -- form return value
+    SELECT concat(cnn.tb_cnn.client,'###',cnn.tb_cnn.input) AS cnn
+    	INTO retval
+        FROM cnn.tb_cnn LIMIT 1;
+    RETURN retval;
 END;
 $$ 
 LANGUAGE plpgsql;
@@ -33,6 +55,8 @@ LANGUAGE plpgsql;
 -- select cnn.sp_cnn_client( 'ban', '');
 -- 
 -- select cnn.sp_cnn_client( 'ban', 'x5x6');
+-- select cnn.sp_cnn_client( );
+
 
 /*
 drop function if exists cnn.puk();
