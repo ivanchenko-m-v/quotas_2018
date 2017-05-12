@@ -227,6 +227,8 @@
     <Build Include="PostgreSQL\cnn\tb_cnn.sql" />
     <Build Include="PostgreSQL\stored_procedures\sp_aquatic_resource.sql" />
     <Build Include="PostgreSQL\cnn\stored_procedures\sp_cnn_client.sql" />
+    <Build Include="PostgreSQL\stored_procedures\sp_fishery_volume.sql" />
+    <Build Include="PostgreSQL\stored_procedures\sp_quota.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="db_quotas_2018.refactorlog" />
