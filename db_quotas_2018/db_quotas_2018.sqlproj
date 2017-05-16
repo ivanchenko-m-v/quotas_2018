@@ -82,6 +82,7 @@
     <Folder Include="PostgreSQL\q09" />
     <Folder Include="PostgreSQL\cnn" />
     <Folder Include="PostgreSQL\cnn\stored_procedures" />
+    <Folder Include="PostgreSQL\views" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="MsSqlServer\tables\archieve_tables\tb_archive_user_ar.sql" />
@@ -229,6 +230,7 @@
     <Build Include="PostgreSQL\cnn\stored_procedures\sp_cnn_client.sql" />
     <Build Include="PostgreSQL\stored_procedures\sp_fishery_volume.sql" />
     <Build Include="PostgreSQL\stored_procedures\sp_quota.sql" />
+    <Build Include="PostgreSQL\views\vw_limits_common_1.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="db_quotas_2018.refactorlog" />
