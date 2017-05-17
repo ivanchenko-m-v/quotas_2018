@@ -83,6 +83,9 @@
     <Folder Include="PostgreSQL\cnn" />
     <Folder Include="PostgreSQL\cnn\stored_procedures" />
     <Folder Include="PostgreSQL\views" />
+    <Folder Include="MsSqlServer\views" />
+    <Folder Include="MsSqlServer\views\ver1" />
+    <Folder Include="PostgreSQL\views\ver1" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="MsSqlServer\tables\archieve_tables\tb_archive_user_ar.sql" />
@@ -230,7 +233,15 @@
     <Build Include="PostgreSQL\cnn\stored_procedures\sp_cnn_client.sql" />
     <Build Include="PostgreSQL\stored_procedures\sp_fishery_volume.sql" />
     <Build Include="PostgreSQL\stored_procedures\sp_quota.sql" />
-    <Build Include="PostgreSQL\views\vw_limits_common_1.sql" />
+    <Build Include="MsSqlServer\views\vw_limits_common_actual.sql" />
+    <Build Include="MsSqlServer\views\vw_limits_common_1_and_12_ver2.sql" />
+    <Build Include="MsSqlServer\views\ver1\vw_limits_common_12.sql" />
+    <Build Include="MsSqlServer\views\ver1\vw_limits_common_1_and_12.sql" />
+    <Build Include="MsSqlServer\views\ver1\vw_limits_common_1.sql" />
+    <Build Include="MsSqlServer\views\ver1\vw_limits_common.sql" />
+    <Build Include="PostgreSQL\views\ver1\vw_limits_common_1.sql" />
+    <Build Include="PostgreSQL\views\ver1\vw_limits_common_1_and_12.sql" />
+    <Build Include="PostgreSQL\views\vw_limits_common_ver2.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="db_quotas_2018.refactorlog" />
