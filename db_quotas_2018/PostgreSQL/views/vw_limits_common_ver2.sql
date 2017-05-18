@@ -1,7 +1,7 @@
 -- =============================================================================
 -- db_quotas_2018
 -- vw_limits_common_ver2 - представления для отображения ОДУ по видам квот
---						   версия 2
+-- 						   версия 2
 -- PostgreSQL
 -- Автор: Иванченко М.В.
 -- Дата начала разработки:  17-05-2017
@@ -122,9 +122,9 @@ SELECT
 	LC1.f_vol AS f_vol_1,
 	LC12.f_vol AS f_vol_12
 	FROM 
-		(SELECT * FROM q09.vw_limits_common_actual  WHERE (id_regime=1)and(id_unit=168)) LC1
+		(SELECT * FROM q09.vw_lc_all  WHERE (id_regime=1)and(id_unit=168)) LC1
 		FULL OUTER JOIN
-		(SELECT * FROM q09.vw_limits_common_actual  WHERE (id_regime=12)and(id_unit=168)) LC12
+		(SELECT * FROM q09.vw_lc_all  WHERE (id_regime=12)and(id_unit=168)) LC12
 		ON
 		(LC1.id_fish=LC12.id_fish)and(LC1.id_region=LC12.id_region)and
 		(LC1.id_subject=LC12.id_subject)and(LC1.yyyy=LC12.yyyy);

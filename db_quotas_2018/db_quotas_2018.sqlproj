@@ -242,6 +242,9 @@
     <Build Include="PostgreSQL\views\ver1\vw_limits_common_1.sql" />
     <Build Include="PostgreSQL\views\ver1\vw_limits_common_1_and_12.sql" />
     <Build Include="PostgreSQL\views\vw_limits_common_ver2.sql" />
+    <Build Include="MsSqlServer\views\vw_lc_all.sql" />
+    <Build Include="MsSqlServer\views\vw_lc_all_v2.sql" />
+    <Build Include="PostgreSQL\views\vw_lc_all.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="db_quotas_2018.refactorlog" />

@@ -2,10 +2,10 @@
 --=============================================================================
 -- db_quotas_2018
 -- [dbo].[vw_limits_common_1_and_12] - представление 
---									 'ОДУ по видам квот промышленные и прибрежные'
+--									  'ОДУ по видам квот промышленные и прибрежные'
 -- Автор: Иванченко М.В.
 -- Дата начала разработки:  17-05-2018
--- Дата обновления:         17-05-2018
+-- Дата обновления:         18-05-2018
 -- Первый релиз:            0.0.0.0
 -- Текущий релиз:           0.0.0.0
 --=============================================================================
@@ -64,13 +64,18 @@ SELECT
 	LC1.f_vol AS f_vol_1,
 	LC12.f_vol AS f_vol_12
 	FROM 
-		(SELECT * FROM dbo.vw_limits_common_actual  WHERE (id_regime=1)and(id_unit=168)) LC1
+		(SELECT * FROM dbo.vw_lc_all_v2  WHERE (id_regime=1)and(id_unit=168)) LC1
 		FULL OUTER JOIN
-		(SELECT * FROM dbo.vw_limits_common_actual  WHERE (id_regime=12)and(id_unit=168)) LC12
+		(SELECT * FROM dbo.vw_lc_all_v2  WHERE (id_regime=12)and(id_unit=168)) LC12
 		ON
 		(LC1.id_fish=LC12.id_fish)and(LC1.id_region=LC12.id_region)and
 		(LC1.id_subject=LC12.id_subject)and(LC1.yyyy=LC12.yyyy);
+
+
 		/*
+SELECT *
+	FROM dbo.vw_limits_common_1_and_12
+	-- WHERE (f_vol_1=0)OR(f_vol_12=0)
 	ORDER BY 
 		id_basin,id_fish,id_region,id_subject,yyyy;*/
 
