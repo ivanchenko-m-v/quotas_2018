@@ -245,6 +245,7 @@
     <Build Include="MsSqlServer\views\vw_lc_all.sql" />
     <Build Include="MsSqlServer\views\vw_lc_all_v2.sql" />
     <Build Include="PostgreSQL\views\vw_lc_all.sql" />
+    <Build Include="MsSqlServer\views\vw_lc_all_v3.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="db_quotas_2018.refactorlog" />
