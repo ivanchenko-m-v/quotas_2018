@@ -4,7 +4,7 @@
 -- PostgreSQL
 -- Автор: Иванченко М.В.
 -- Дата начала разработки:  02-06-2017
--- Дата обновления:         02-06-2017
+-- Дата обновления:         05-06-2017
 -- Первый релиз:            0.0.0.0
 -- Текущий релиз:           0.0.0.0
 -- =============================================================================
@@ -35,12 +35,13 @@ $$
 $$
 LANGUAGE sql VOLATILE
 COST 100;
+
 /*
     quotas.sp_region_read( ) 
     - функции сервера для выборки ВСЕХ записей данных районов промысла
     
     возвращает:
-        -- набор записей данных района промысла
+        -- набор записей данных районов промысла
 */
 -- 
 DROP FUNCTION IF EXISTS quotas.sp_region_read( );
@@ -58,11 +59,47 @@ $$
 $$ 
 LANGUAGE sql VOLATILE
 COST 100;
+
+/*
+    quotas.sp_region_read( p_criteria VARCHAR ) 
+    - функции сервера для выборки ОДНОЙ записи данных района промысла
+    
+    параметры:
+        p_criteria - строка поиска в наименовании
+        
+    возвращает:
+        -- набор записей данных районов промысла, 
+           соответствующих критерию выборки
+*/
+--
+DROP FUNCTION IF EXISTS quotas.sp_region_read(VARCHAR);
+--
+CREATE OR REPLACE FUNCTION quotas.sp_region_read( p_criteria VARCHAR(64) ) 
+RETURNS SETOF quotas.tb_region 
+AS
+$$
+    DECLARE x_like VARCHAR(64);
+BEGIN
+    x_like := concat('%', lower(p_criteria), '%');
+	RETURN QUERY
+        SELECT  TBR.id_region, 
+                TBR.id_region_fms,
+                TBR.sort_order, 
+                TBR.region,
+                TBR.region_title_by_order
+            FROM quotas.tb_region TBR
+            WHERE (lower(TBR.region) LIKE x_like)OR
+            	  (lower(TBR.region_title_by_order) LIKE x_like);
+END;
+$$
+LANGUAGE plpgsql VOLATILE
+COST 100;
 /*TESTS*/
 -- select * from sp_region_read(63)
 -- select quotas.sp_region_read( 0 );
 -- select quotas.sp_region_read( );
 -- select * from quotas.sp_region_read( );
+-- select * from quotas.sp_region_read( 'под' );
 
 /*
     quotas.sp_region( ... ) 
@@ -99,12 +136,25 @@ $$
 BEGIN
     -- insert new region
     IF p_action='CREATE' THEN
-    BEGIN
-        INSERT INTO quotas.tb_region (id_region_fms, sort_order, region, region_title_by_order)
-            VALUES (p_id_region_fms, p_sort_order, p_region, p_region_title_by_order)
-        RETURNING id_region INTO result_id;
-        RETURN result_id;
-    END;    
+        IF EXISTS(SELECT id_region FROM quotas.tb_region) THEN
+            BEGIN
+                INSERT INTO quotas.tb_region 
+                            (id_region, id_region_fms, sort_order, 
+                             region, region_title_by_order)
+                    SELECT  MAX(id_region)+1, p_id_region_fms, p_sort_order, 
+                            p_region, p_region_title_by_order
+                        FROM quotas.tb_region
+                RETURNING id_region INTO result_id;
+                RETURN result_id;
+            END;
+        ELSE
+            BEGIN
+                INSERT INTO quotas.tb_region
+                    VALUES (1, p_id_region_fms, p_sort_order, 
+                            p_region, p_region_title_by_order);
+                RETURN 1;
+            END;
+    	END IF;
     END IF; 
     -- update region
     IF p_action='PATCH' THEN
@@ -128,6 +178,7 @@ BEGIN
             RETURN result_id;
         END;
     END IF; 
+    
 END;
 $$ LANGUAGE plpgsql;
 

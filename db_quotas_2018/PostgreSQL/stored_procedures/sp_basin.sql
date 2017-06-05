@@ -4,7 +4,7 @@
 -- PostgreSQL
 -- Автор: Иванченко М.В.
 -- Дата начала разработки:  31-05-2017
--- Дата обновления:         01-06-2017
+-- Дата обновления:         05-06-2017
 -- Первый релиз:            0.0.0.0
 -- Текущий релиз:           0.0.0.0
 -- =============================================================================
@@ -90,7 +90,7 @@ BEGIN
     -- insert new basin
     IF p_action='CREATE' THEN
     BEGIN
-        IF EXISTS(SELECT * FROM quotas.tb_basin) THEN
+        IF EXISTS(SELECT id_basin FROM quotas.tb_basin) THEN
             BEGIN
                 INSERT INTO quotas.tb_basin
                     SELECT MAX(id_basin)+1, p_basin, p_abbr
